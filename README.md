@@ -12,7 +12,7 @@
 
 ```
 python parameterestimation.py
-python fullcompensation.py
+python compensate.py
 ```
 
 
