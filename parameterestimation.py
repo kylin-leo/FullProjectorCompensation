@@ -56,15 +56,12 @@ def imagewarp(x, flo):
     x = x.cuda()
     grid = grid.cuda()
     vgrid = flo + grid  # Variable(grid)  # B,2,H,W
-    # 图二的每个像素坐标加上它的光流即为该像素点对应在图一的坐标
-
-    # scale grid to [-1,1]
-    ##2019 code
+    
     vgrid[:, :, :, 0] = 2.0 * vgrid[:, :, :, 0].clone() / max(W - 1, 1) - 1.0
-    # 取出光流v这个维度，原来范围是0~W-1，再除以W-1，范围是0~1，再乘以2，范围是0~2，再-1，范围是-1~1
-    vgrid[:, :, :, 1] = 2.0 * vgrid[:, :, :, 1].clone() / max(H - 1, 1) - 1.0  # 取出光流u这个维度，同上
+   
+    vgrid[:, :, :, 1] = 2.0 * vgrid[:, :, :, 1].clone() / max(H - 1, 1) - 1.0  
 
-    # vgrid = vgrid.permute(0, 2, 3, 1)  # from B,2,H,W -> B,H,W,2，为什么要这么变呢？是因为要配合grid_sample这个函数的使用
+    
     output = nn.functional.grid_sample(x.float().cuda(), vgrid.float().cuda(), mode='bilinear', padding_mode='zeros',
                                        align_corners=True)
 
