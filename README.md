@@ -20,8 +20,11 @@ python compensate.py
 
 ![estgif](https://github.com/kylin-leo/FullProjectorCompensation/blob/main/gif/opt.gif)
 
+Note:
 
 Here the multiplication by 5 is to visualize the minor reconstruction error of our method.
+
+
 Sign + and - denotes the positive and negative component of \alpha respectively.
 
 
