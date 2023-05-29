@@ -1,7 +1,7 @@
 # Efficient Full Projector Compensation using Natural Images
 
 
-!(https://github.com/kylin-leo/FullProjectorCompensation/blob/main/fullcompensation.png)
+![teaser](https://github.com/kylin-leo/FullProjectorCompensation/blob/main/fullcompensation.png)
 
 ## Dependencies
 * pytorch
